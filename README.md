@@ -116,11 +116,7 @@ Pull requests are welcome! For major changes, please open an issue first.
 
 ---
 
-## 📜 License
 
-MIT License – use it, modify it, share it. Just don’t sell it as-is.
-
----
 
 ## ❤️ From the Devs
 

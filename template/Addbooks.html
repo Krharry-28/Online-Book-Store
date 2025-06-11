@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  
+
+<style>
+    html,
+    body {
+        font-family: Georgia, serif;
+    }  
+    body {
+        background: url("/static/log.jpg") 50% 0 no-repeat fixed;
+        color: white;
+        height: 650px;
+        padding: 100px 0 0 0;   
+        }
+</style> 
+{% endblock head %}
+{% block body %}
+<div class="col-md-8 col-sm-5 col-xs-5">
+<div id="content" class="p-6 p-md-5 pt-5">
+    <div class="col-md-12 col-sm-12 col-xs-10">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table text-primary"></i>
+                    Fill In Information Of Books
+                </div>
+                <div class="card-body">
+               <form action="{% url 'aabook' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+        <div class="form-group">
+                <div class="col"><input type="text" class="form-control" name="title" placeholder="Book Title" required="required"></div>
+        </div>
+        <div class="form-group">
+                <div class="col"><input type="text" class="form-control" name="author" placeholder="Author" required="required"></div>                 
+        </div>
+
+         <div class="form-group">
+                <div class="col"><input type="text" class="form-control" name="publisher" placeholder="Publisher" required="required"></div>
+        </div>
+
+        <div class="form-group">
+                <div class="col"><input type="text" class="form-control" name="year" placeholder="Publication Year" required="required"></div>
+        </div>
+
+      <div class="form-group">
+        <textarea class="form-control" id="desc" rows="3" name="desc" placeholder="Description...."></textarea>
+        </div>
+
+
+        <div class="form-group">
+                <div class="col"><label>Choose Book Cover</label>
+                    <input type="file" id="myFile" name="cover" placeholder="Report Attachment" enctype="multipart/form-data"></div>
+        </div>
+
+        <div class="form-group">
+                <div class="col"><label>Choose PDF Book</label>
+                    <input type="file" id="myFile" name="pdf" placeholder="Report Attachment" enctype="multipart/form-data"></div>
+        </div>
+        <div class="form-group-fluid">
+            <select name="CATEGORY" id="CATEGORY">
+                <option value="Action and Adventure" name="Action and Adventure" id="Action and Adventure">Action and Adventure</option>
+                <option value="Classics" name="Classics" id="Classics">Classics</option>
+                <option value="Comic Books and Grapical Novel" name="Comic Books and Grapical Novel" id="Comic Books and Grapical Novel">Comic Books and Grapical Novel</option>
+                <option value="Detective and Mystery"name="Detective and Mystery" id="Detective and Mystery">Detective and Mystery</option>
+                <option value="Fantasy"name="Fantasy" id="Fantasy">Fantasy</option>
+                <option value="Historical Fiction"name="Historical Fiction" id="Historical Fiction">Historical Fiction</option>
+                <option value="Horror"name="Horror" id="Horror">Horror</option>
+                <option value="Literary Fiction"name="Literary Fiction" id="Literary Fiction">Literary Fiction</option>
+                <option value="Science Fiction"name="Science Fiction" id="Science Fiction">Science Fiction</option>
+            </select>
+
+
+        </div>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/login/?next=/admin">Login</a>
+          </li>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" href="">Add Now</button>
+        </div>
+    </form>
+
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
